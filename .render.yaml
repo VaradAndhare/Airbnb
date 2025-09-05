@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: airbnb-clone       # change this to your app name
+    env: node
+    rootDir: .
+    plan: free               # or starter/pro based on your plan
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
+    autoDeploy: true
