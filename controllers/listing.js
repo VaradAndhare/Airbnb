@@ -16,7 +16,9 @@ module.exports.addNewListing = async (req , res) => {
    let filename = req.file.filename;
    let newListing =  new Listing(req.body.listing);
    newListing.owner = req.user._id;
-   newListing.image = {url , filename};
+   if(url && filename){
+      newListing.image = {url , filename};
+   }
    let location = req.body.listing.location;
    let URL = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`;
    const response = await axios.get(URL, {
