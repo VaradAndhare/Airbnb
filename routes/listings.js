@@ -11,7 +11,7 @@ const listingController = require("../controllers/listing.js")
 
 router.route("/")
    .get(wrapAsync(listingController.index))
-   .post(isLoggedIn , upload.single("listing[image]") , validateListing , wrapAsync(listingController.addNewListing));
+   .post( upload.single("listing[image]") , validateListing , wrapAsync(listingController.addNewListing));
    
 
 router.route("/new")
